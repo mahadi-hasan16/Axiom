@@ -1,24 +1,217 @@
-# Compiled class file
-*.class
+# ========================================
+# NEXT.JS IGNORES
+# ========================================
 
-# Log file
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ========================================
+# SPRING BOOT IGNORES
+# ========================================
+
+# Compiled class files
+*/target/
+!*/target/classes/
+!*/target/test-classes/
+!*/target/maven-archiver/
+!*/target/surefire-reports/
+!*/target/site/
+!*/target/generated-sources/
+!*/target/generated-test-sources/
+
+# Log files
 *.log
 
-# BlueJ files
-*.ctxt
+# Spring Boot application properties
+application-*.properties
+application-*.yml
+!application-default.properties
+!application-default.yml
+!application-local.properties
+!application-local.yml
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# ========================================
+# IDE IGNORES (UPDATED)
+# ========================================
+
+# Visual Studio
+.vs/
+.vsconfig
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# IntelliJ IDEA / WebStorm / PyCharm etc.
+.idea/
+*.iws
+*.iml
+*.ipr
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/**/maven.xml
+.idea/**/modules.xml
+.idea/**/scopes/
+.idea/**/vcs.xml
+.idea/**/compiler.xml
+.idea/**/encodings.xml
+.idea/**/jarRepositories.xml
+.idea/**/misc.xml
+.idea/**/runConfigurations/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# NetBeans
+/nbproject/
+/nbdist/
+/.nb-gradle/
+
+# ========================================
+# COMMON IGNORES
+# ========================================
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Backup files
+*.bak
+*.tmp
+*.orig
+*.old
+*.pid
+*.seed
+*.pid.lock
+
+# Package manager lock files (optional - uncomment if needed)
+# yarn.lock
+# package-lock.json
+
+# Docker
+*.pid
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# ========================================
+# SPECIFIC FOR MONOREPO STRUCTURE
+# ========================================
+
+# If using a monorepo with both in root
+/frontend/node_modules
+/frontend/.next
+/frontend/out
+/frontend/build
+/frontend/.env*.local
+/frontend/.vs/
+/frontend/.vscode/
+
+/backend/target
+/backend/build
+/backend/.gradle
+/backend/*.log
+/backend/.vs/
+/backend/.vscode/
+
+# If using workspaces
+/node_modules
+/.next
+/out
+/build
+/.vs/
+/.vscode/
+
+# coverage
+/coverage
+
+# Testing reports
+/test-reports/
+/target/surefire-reports/
+/target/failsafe-reports/
