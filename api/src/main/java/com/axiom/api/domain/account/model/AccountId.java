@@ -18,7 +18,7 @@ public record AccountId(UUID id) implements Serializable, Comparable<AccountId> 
     }
 
     public static AccountId of(String id) {
-        Objects.requireNonNull(id, "Account Id is required. Account Is can't be null.");
+        Objects.requireNonNull(id, "Account ID is required. Account ID can't be null.");
         try {
             return new AccountId(UUID.fromString(id.strip()));
         }

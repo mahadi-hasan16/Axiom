@@ -20,7 +20,7 @@ public class Account implements Serializable {
     private final AccountClassification classification;
     private final AccountType accountType;
     private final CurrencyCode currencyCode;
-    private boolean isHeader;
+    private boolean isPostable;
     private boolean active;
     private final long version;
 
@@ -34,7 +34,7 @@ public class Account implements Serializable {
             AccountClassification classification,
             AccountType accountType,
             CurrencyCode currencyCode,
-            boolean isHeader,
+            boolean isPostable,
             boolean active,
             long version
     ) {
@@ -45,7 +45,7 @@ public class Account implements Serializable {
         this.classification = Objects.requireNonNull(classification, "Account classification cannot be null");
         this.accountType = Objects.requireNonNull(accountType, "Account type cannot be null");
         this.currencyCode = Objects.requireNonNull(currencyCode, "Currency code cannot be null");
-        this.isHeader = isHeader;
+        this.isPostable = isPostable;
         this.active = active;
         this.version = version;
 
@@ -94,7 +94,7 @@ public class Account implements Serializable {
         if (!this.active) {
             throw new AccountPostingException("Cannot post transactions to inactive account: " + this.accountNumber);
         }
-        if (this.isHeader) {
+        if (this.isPostable) {
             throw new AccountPostingException("Cannot post transactions to header/summary account: " + this.accountNumber);
         }
     }
@@ -108,12 +108,12 @@ public class Account implements Serializable {
         this.name = validateName(newName);
     }
 
-    public void markAsHeader() {
-        this.isHeader = true;
+    public void markAsPostable() {
+        this.isPostable = true;
     }
 
-    public void markAsLeaf() {
-        this.isHeader = false;
+    public void markAsNonpostable() {
+        this.isPostable = false;
     }
 
     public void deactivate() {
@@ -173,7 +173,7 @@ public class Account implements Serializable {
     public AccountClassification getClassification() { return classification; }
     public AccountType getAccountType() { return accountType; }
     public CurrencyCode getCurrencyCode() { return currencyCode; }
-    public boolean isHeader() { return isHeader; }
+    public boolean isPostable() { return isPostable; }
     public boolean isActive() { return active; }
     public long getVersion() { return version; }
 

@@ -15,7 +15,7 @@ public record ExchangeRate(
         BigDecimal rate,
         Instant effectiveAt
 ) implements Serializable, Comparable<ExchangeRate> {
-    public static final int RATE_SCALE = 0;
+    public static final int RATE_SCALE = 8;
     public static final RoundingMode RATE_ROUNDING_MODE = RoundingMode.HALF_EVEN;
     private static final MathContext INVERSION_CONTEXT = new MathContext(RATE_SCALE + 4, RATE_ROUNDING_MODE);
 
