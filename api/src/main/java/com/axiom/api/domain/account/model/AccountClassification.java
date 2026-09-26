@@ -7,15 +7,6 @@ public enum AccountClassification {
     LIABILITY(DebitCredit.CREDIT, FinancialStatementType.BALANCE_SHEET),
     EQUITY(DebitCredit.CREDIT, FinancialStatementType.BALANCE_SHEET);
 
-    private enum DebitCredit {
-        DEBIT,
-        CREDIT
-    }
-    private enum FinancialStatementType {
-        BALANCE_SHEET,
-        INCOME_STATEMENT
-    }
-
     private final DebitCredit normalBalance;
     private final FinancialStatementType statementType;
 
