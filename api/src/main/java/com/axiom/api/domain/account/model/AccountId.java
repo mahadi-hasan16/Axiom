@@ -27,6 +27,10 @@ public record AccountId(UUID id) implements Serializable, Comparable<AccountId> 
         }
     }
 
+    public UUID toUUID() {
+        return this.id;
+    }
+
     @Override
     public int compareTo(AccountId other) {
         return id.compareTo(other.id);
