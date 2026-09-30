@@ -36,7 +36,7 @@ public record AccountCreatedEvent(
 
     public static AccountCreatedEvent of(
             AccountId accountId,
-            String accountCode,
+            String accountNumber,
             String accountName,
             AccountId parentId,
             AccountClassification classification,
@@ -48,7 +48,7 @@ public record AccountCreatedEvent(
                 UUID.randomUUID(),
                 Instant.now(),
                 accountId,
-                accountCode,
+                accountNumber,
                 accountName,
                 parentId,
                 classification,
