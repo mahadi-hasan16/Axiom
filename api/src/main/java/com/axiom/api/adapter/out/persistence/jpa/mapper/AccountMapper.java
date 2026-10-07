@@ -1,4 +1,4 @@
-package com.axiom.api.adapter.out.persistence.mapper;
+package com.axiom.api.adapter.out.persistence.jpa.mapper;
 
 import com.axiom.api.adapter.out.persistence.jpa.entity.AccountEntity;
 import com.axiom.api.domain.account.model.Account;

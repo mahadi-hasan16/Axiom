@@ -2,8 +2,8 @@ package com.axiom.api.application.account.service;
 
 import com.axiom.api.application.account.command.CreateAccountCommand;
 import com.axiom.api.application.account.port.in.CreateAccountUseCase;
-import com.axiom.api.application.account.port.out.ExecuteAccountProcedurePort;
 import com.axiom.api.application.account.port.out.LoadAccountPort;
+import com.axiom.api.application.account.port.out.SaveAccountPort;
 import com.axiom.api.domain.account.exception.DuplicateAccountNumberException;
 import com.axiom.api.domain.account.exception.InvalidAccountHierarchyException;
 import com.axiom.api.domain.account.exception.ParentAccountNotFoundException;
@@ -14,11 +14,11 @@ import java.util.Objects;
 
 public class AccountCommandService implements CreateAccountUseCase {
     private final LoadAccountPort loadAccountPort;
-    private final ExecuteAccountProcedurePort executeAccountProcedurePort;
+    private final SaveAccountPort saveAccountPort;
 
-    public AccountCommandService(LoadAccountPort loadAccountPort, ExecuteAccountProcedurePort executeAccountProcedurePort) {
+    public AccountCommandService(LoadAccountPort loadAccountPort, SaveAccountPort saveAccountPort) {
         this.loadAccountPort = loadAccountPort;
-        this.executeAccountProcedurePort = executeAccountProcedurePort;
+        this.saveAccountPort = saveAccountPort;
     }
     @Override
     public AccountId createAccount(CreateAccountCommand createAccountCommand) {
@@ -53,7 +53,7 @@ public class AccountCommandService implements CreateAccountUseCase {
                 createAccountCommand.postable()
         );
 
-        executeAccountProcedurePort.executeCreate(account);
+        saveAccountPort.save(account);
 
         return account.getId();
     }

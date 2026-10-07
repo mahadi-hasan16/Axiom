@@ -5,10 +5,13 @@ import com.axiom.api.domain.account.model.AccountId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface AccountRepository extends JpaRepository<AccountEntity, UUID> {
-    AccountEntity findByAccountNumber(String accountNumber);
+    Optional<AccountEntity> findByAccountNumber(String accountNumber);
+
+    boolean existsByAccountNumber(String accountNumber);
 
     List<AccountEntity> findByClassification(String classification);
 }
